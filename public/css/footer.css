@@ -1,0 +1,390 @@
+@charset "UTF-8";
+/* footer */
+.footer {
+    margin-top: 40px;
+    padding: 35px 0;
+    background: #333;
+}
+
+.width-1200{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-nav {
+    padding-bottom: 20px;
+    border-bottom: solid 1px #4e4e4e;
+}
+
+.footer-nav ul {
+    float: left;
+    margin-right: 100px;
+}
+
+.footer-nav ul li {
+    line-height: 30px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.footer-nav ul li a {
+    font-size: 14px;
+    color: #999
+}
+
+.footer .tit a {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.footer-nav ul li a:hover {
+    color: #fff;
+}
+
+.footer-nav .contact-us {
+    float: right;
+}
+
+.footer-nav .contact-us .weixin {
+    float: left;
+    margin-top: 8px;
+}
+
+.footer-nav .contact-us .weixin img {
+    width: 120px;
+    height: 120px;
+}
+
+.footer-nav .contact-us .weixin p {
+    color: #ccc;
+    line-height: 30px;
+    text-align: center;
+}
+
+.footer-nav .contact-us .txtbox {
+    float: left;
+    margin-left: 15px;
+    color: #999;
+}
+
+.footer-nav .contact-us .txtbox span {
+    display: block;
+    line-height: 20px;
+}
+
+.footer-nav .contact-us .txtbox .tell {
+    font-weight: normal;
+    font-size: 16px;
+    color: #ccc;
+    line-height: 30px;
+}
+
+.footer-nav .contact-us .txtbox .phone {
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 30px;
+    margin-bottom: 3px;
+}
+
+.footer-nav .contact-us .txtbox a {
+    color: #999;
+    padding: 5px 0;
+    display: block;
+}
+
+.footer-nav .contact-us .txtbox a span {
+    display: inline-block;
+    margin-left: 5px;
+    line-height: 24px;
+}
+
+.footer .copyright {
+    margin-top: 20px;
+    color: #999;
+    line-height: 24px;
+    text-align: center;
+}
+
+.copyright a {
+    color: #999;
+}
+
+.footer-white {
+    background: #fff;
+    color: #666;
+}
+
+.footer-white ul li {
+    color: #333;
+}
+
+.footer-white ul li a {
+    color: #666;
+}
+
+.footer-white ul li a:hover {
+    color: #333;
+}
+
+.footer-white .contact-us .txtbox {
+    color: #666;
+}
+
+.footer-white .contact-us .txtbox .tell {
+    color: #333;
+}
+
+.footer-white .contact-us .txtbox .phone {
+    color: #666;
+}
+
+.footer-white .contact-us .weixin img {
+    border: solid 1px #ddd;
+}
+
+.footer-white .contact-us .weixin p {
+    color: #666;
+}
+
+.footer-white .footer-nav {
+    border-color: #ddd;
+}
+
+.footer-white .copyright, .footer-white .copyright a {
+    color: #666;
+}
+
+.footer-white .footer-nav .contact-us .txtbox a {
+    color: #666;
+}
+
+.footer .cred {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer .cred > * {
+    margin-left: 10px;
+}
+
+.footer .cred > *:first-child {
+    margin-left: 0;
+}
+
+.footer .cred a {
+    display: inline-block;
+}
+
+/* rightbar */
+.right-act{
+    position: fixed;
+    bottom: 50%;
+    right: 0;
+    margin-bottom: 140px;
+    z-index: 999;
+}
+
+.rightbar {
+    position: fixed;
+    top: 50%;
+    margin-top: -127px;
+    right: 0px;
+    z-index: 999;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+}
+
+.rightbar li {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 12px;
+    border-top: solid 1px #f2f2f2;
+    cursor: pointer;
+}
+
+.rightbar li:first-child {
+    border-top: none;
+}
+
+.rightbar li > a, .rightbar li > span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5px;
+    line-height: 18px;
+    color: #666;
+}
+
+.rightbar li .iconfont {
+    display: block;
+    font-size: 22px;
+    /*color: #19b955;*/
+    vertical-align: middle;
+}
+
+.rightbar li .icon-gotop {
+    margin-bottom: 5px;
+}
+
+.rightbar li:hover {
+    background: #19b955;
+}
+
+.rightbar li:hover > a, .rightbar li:hover > span, .rightbar li:hover .iconfont {
+    color: #fff;
+}
+
+.rightbar .dropmenu {
+    top: 0;
+    right: 100%;
+    padding: 16px;
+    border: solid 1px #19b955;
+    cursor: auto;
+}
+
+.rightbar .dropmenu:before {
+    position: absolute;
+    top: 19px;
+    left: 100%;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    content: '';
+    border-left: 6px dashed #fff;
+    border-left: 6px solid #fff\9;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+}
+
+.rightbar .qq {
+    line-height: 24px;
+}
+
+.rightbar .qq a:hover {
+    color: #19b955;
+}
+
+.rightbar .qq .qqbox {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.rightbar .qq .tell {
+    font-size: 16px;
+    margin: 5px 0;
+    letter-spacing: 1px;
+}
+
+.rightbar .qq .juser{
+    font-size: 13px;
+    /*margin: 5px 0;*/
+    color: #666;
+    letter-spacing: 1px;
+}
+
+.rightbar .qq .worktime {
+    font-size: 13px;
+    color: #666;
+    line-height: 20px;
+}
+
+.rightbar .qq a {
+    color: #333;
+}
+
+.rightbar .qq .btn-qq {
+    padding: 0 10px;
+    margin-left: 4px;
+    margin-right: 0;
+}
+
+.rightbar .qr-code {
+    padding: 0px;
+}
+
+.btn-qq {
+    display: inline-block;
+    background: #19b955;
+    font-size: 14px;
+    color: #fff;
+    padding: 0 8px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.gotop {
+    display: none;
+}
+
+#cnzz_stat_icon_1263507971 {
+    display: none;
+}
+
+/* 可信网站 */
+.bg-kxwz {
+    width: 81px;
+    height: 30px;
+    background: url('/public/images/common/bg-1.png') -10px -300px;
+}
+
+.bg-aqlm {
+    width: 79px;
+    height: 30px;
+    background: url('/public/images/common/bg-1.png') -111px -300px;
+}
+
+.bg-360 {
+    width: 81px;
+    height: 30px;
+    background: url('/public/images/common/bg-1.png') -10px -250px;
+}
+
+.bg-zdzyy {
+    width: 79px;
+    height: 30px;
+    background: url('/public/images/common/bg-1.png') -10px -350px;
+}
+
+.bg-qgaq {
+    width: 79px;
+    height: 30px;
+    background: url('/public/images/common/bg-1.png') -111px -250px;
+}
+
+.label-vip {
+    width: 114px;
+    height: 114px;
+    background: url('/public/images/common/bg-1.png') -10px -400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 底部通栏v2 */
+.botfocus{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.botfocus img{
+    display: block;
+    width: 100%;
+}
+
+.botfocus-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    font: bold 14px/30px 黑体;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: 0 0 2px rgba(0,0,0,.2);
+}
+/* 底部通栏v2 end */

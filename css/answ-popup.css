@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/* 弹出层 */
+.ask-layer {
+	width: 789px;
+	height: 600px;
+	/* background-color: #F8F8F8; */
+	border-radius: 8px 8px 4px 8px;
+}
+
+.ask-top {
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	height: 42px;
+	line-height: 42px;
+	color: #333333;
+	padding-left: 27px;
+	padding-right: 14px;
+	font-size: 18px;
+}
+
+.ask-top .iconfont {
+	font-size: 18px;
+	color: #999999;
+	cursor: pointer;
+}
+.ask-top .iconfont:hover{
+	color: #666;
+}
+
+.ask-center {
+	position: relative;
+	width: 647px;
+	height: 503px;
+	margin: 10px 20px 14px 27px;
+	border: 1px solid #1ABC9C;
+	border-radius: 8px;
+}
+
+.ask-center:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: #fff;
+	border-top: 1px solid #1ABC9C;
+	border-right: 1px solid #1ABC9C;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	border-left: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+}
+.tip-right:after {
+	/* border-left-color: #1ABC9C; */
+	left: calc(100% - 5px);
+	z-index: 99;
+	top: 58px;
+}
+
+.ask-center #ques-content {
+	margin: 16px 29px;
+}
+.ask-center .layui-layedit-tool{
+	border: none;
+}
+.ask-center .layui-layedit {
+	height: 440px;
+	border: none;
+}
+.ask-right{
+	position: relative;
+	width: 71px;
+	margin-top: 32px;
+	text-align: center;
+}
+.ask-right .head{
+	width: 71px;
+	height: 71px;
+	border-radius: 50%;
+	display: inline-block;
+}
+.ask-right span{
+	margin-top: 6px;
+	color: #333333;
+	font-size: 14px;
+}
+.ask-right .vip-icon{
+	width: 43px;
+	margin-top: 6px;
+	display: inline-block;
+	height: 15px;
+}
+
+
+.popup-foot {
+	padding: 0 10px;
+	height: 62px;
+	line-height: 62px;
+	border-top: none;
+	position: relative;
+	display: none;
+}
+.popup-foot .foot-tips{
+	display: inline-block;
+	color: #999;
+	font-size: 14px;
+}
+.popup-foot .foot-left {
+	float: left;
+	display: inline-block;
+	height: 62px;
+	font-size: 14px;
+	color: #666;
+	overflow: hidden;
+	padding-left: 10px;
+}
+
+.popup-foot .foot-left p {
+
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	width: 444px;
+	display: inline-block;
+	margin-top: 9px;
+}
+
+.popup-foot .submit {
+	position: relative;
+	float: right;
+	top: 11px;
+	width: 90px;
+	height: 41px;
+	line-height: 41px;
+	border-radius: 4px;
+	background-color: #1ABC9C;
+	border: none;
+	font-size: 16px;
+	color: #FFF;
+}
+
+.popup-foot .submit:hover {
+	cursor: pointer;
+	background-color: rgba(26, 188, 156, 0.8);
+}

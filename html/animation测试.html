@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../public/css/reset.css" />
+		<link rel="stylesheet" href="../public/css/animate.min.css" />
+
+		<style>
+			.bg-test {
+				position: relative;
+				margin-top: 50px;
+				width: 500px;
+				height: 300px;
+				border: 1px solid #FF0000;
+				border-radius: 8px;
+			}
+
+			.label {
+				position: absolute;
+				z-index: -1;
+				display: inline-block;
+				width: 0;
+				height: 0;
+				border-width: 100px 100px 0 0;
+				border-color: #FF7711 #fff transparent transparent;
+				border-style: solid solid dashed dashed;
+				border-top-left-radius: 8px;
+
+			}
+
+			.span-test {
+				position: absolute;
+				color: #fff;
+				font-size: 14px;
+				left: 0;
+				top: 0;
+				text-align: center;
+				display: inline-block;
+				transform: rotate(-45deg) translate(-1px, 10px);
+				/* background-color: #F0AD4E; */
+			}
+
+			.span-test>.iconfont {
+				display: inline-block;
+				vertical-align: 5px;
+				font-size: 16px;
+			}
+
+			.span-test>span {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <div class="animated bounce infinite " style="height: 100px;width: 500px;background: #005CBF;"></div> -->
+		<!-- <div class="animated wobble infinite " style="height: 100px;width: 500px;background: #FF7F5E;"></div> -->
+		<div style="background-image: url(../images/avatar.png); width: 82px;height: 70px;">
+			<img src="../images/u32.png" style="height: 50px;width: 50px;margin-top: 19px;margin-left: 17px;border-radius: 50%;" />
+		</div>
+		<div class="bg-test">
+			<div class="label">
+			</div>
+			<div class="span-test">
+				<i class="iconfont">&#xe617;</i>
+				<span>已采纳</span>
+			</div>
+			<h2>已帮助<span>12</span> 人解决了问题</h2>
+			<p>
+				草图大师导出图片很简单啊，模型倒出图片再简单不过了。选模型，点导出，点确定就ok 了。
+				我随便画一个模型给你截图吧！<br />
+				1 、打开草图大师，打开你的模型，点击草图大师左上角的文件，在选择导出，在点击二维图
+				形。如图操作：
+			</p>
+			<p><img src="../images/u2288.png" /> </p>
+			<a href="javascript:;">展开全部 <i class="iconfont">&#xe600;</i> </a>
+		</div>
+
+	</body>
+</html>

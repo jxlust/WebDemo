@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="../public/css/reset.css" />
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			.nav {
+				width: 100%;
+			}
+
+			.sub_button {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 99;
+				background: #fff;
+			}
+
+		
+		</style>
+	</head>
+	<body>
+		<div id="footer" style="">
+			<!-- class="row" -->
+			<ul class="ul-nav" style="position: absolute;">
+				<li>导航1</li>
+				<li>导航1</li>
+				<li>导航1</li>
+				<li>导航1</li>
+				<li>导航1</li>
+				<li>导航1</li>
+				<div class="showinput" style=""><input value="hhsldfjal" /></div>
+			</ul>
+		</div>
+
+		<div style="height: 1800px;width: 100%;background: #eee;margin: 0;" id="testc">
+
+		</div>
+		阿斯顿发生
+	</body>
+	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
+	<!-- <script src="../js/stickTop.js"> -->
+	</script>
+	<script>
+		$(window).scroll(
+			function() {
+				var bottom_height = $(document).height() - $(window).scrollTop() - $(window).height(),
+					footer = $("#footer");
+				if (bottom_height < 54) {
+					//console.log("b===" + bottom_height);
+					footer.removeClass("sub_button");
+				} else {
+					footer.addClass("sub_button");
+					//footer.find(".col-md-12").css("bottom", "3px");
+				}
+			})
+	</script>
+</html>

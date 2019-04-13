@@ -1,0 +1,226 @@
+@charset "UTF-8";
+.paybox {
+    width: 315px;
+    height: 373px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 30px 0px 0px 0px;
+    background: #fff;
+    position: relative;
+}
+
+.pay-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+    text-align: right;
+    color: #999;
+}
+
+.pay-logo {
+    width: 265px;
+    margin: 0 auto;
+}
+
+.pay-logo a {
+    float: left;
+}
+
+.pay-logo img {
+    display: inline-block;
+    height: 34px;
+}
+
+.pay-logo h1 {
+    float: left;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    color: #999;
+    padding-left: 10px;
+    margin-top: 2px;
+    margin-left: 10px;
+    border-left: solid 1px #e2e2e2;
+}
+
+.pay-code {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px auto;
+    background: #fff;
+    border: solid 1px #e2e2e2;
+}
+
+.pay h1 {
+    font-weight: normal;
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    color: #f90;
+    margin-top: 15px;
+}
+
+.pay p {
+    width: 230px;
+    line-height: 26px;
+    margin: 0 auto;
+    text-align: center;
+    color: #666;
+    border-radius: 13px;
+}
+.pay p i{
+    color: #42b0ef;
+    font-size: 17px;
+}
+.pay p span{
+    color: #19b955;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.pay > img {
+    margin: 25px auto;
+}
+
+.pay a {
+    display: block;
+    width: 140px;
+    margin: -5px auto;
+    color: #19b955;
+}
+
+.tips {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    text-align: center;
+    color: #999;
+}
+
+.tips a {
+    margin-left: 3px;
+    display: inline-block;
+    padding: 0 5px;
+    border: solid 1px #19b955;
+    border-radius: 2px;
+    color: #19b955;
+}
+
+.timeout > .iconfont {
+    display: block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    margin: 60px auto 0 auto;
+    font-size: 100px;
+    color: #f90;
+}
+
+.timeout h2 {
+    margin-top: 20px;
+    font-weight: normal;
+    text-align: center;
+    font-size: 28px;
+    color: #f90;
+}
+
+.timeout p {
+    width: 130px;
+    margin: 10px auto 0 auto;
+    font-size: 18px;
+    color: #19b955;
+    cursor: pointer;
+}
+
+.timeout p .iconfont {
+    vertical-align: -1px;
+    font-size: 20px;
+}
+
+.paying h1 {
+    font-weight: normal;
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    color: #f90;
+    margin-top: 15px;
+}
+
+.paying h2 {
+    font-weight: normal;
+    text-align: center;
+    font-size: 26px;
+    color: #19b955;
+    margin-top: 65px;
+}
+
+.paying p {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+}
+
+.paying p span {
+    color: #f90;
+}
+
+.paying > span {
+    display: block;
+    width: 130px;
+    margin: 10px auto 0 auto;
+    font-size: 18px;
+    color: #19b955;
+    cursor: pointer;
+}
+
+.paying > span .iconfont {
+    vertical-align: -1px;
+    font-size: 20px;
+}
+
+.success > .iconfont {
+    display: block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    margin: 60px auto 0 auto;
+    font-size: 100px;
+    color: #41cd36;
+}
+
+.success h2 {
+    font-weight: normal;
+    text-align: center;
+    font-size: 26px;
+    color: #19b955;
+    margin-top: 30px;
+}
+
+.success p {
+    margin-top: 10px;
+    color: #999;
+}
+
+.success p span {
+    color: #f90;
+}
+
+.pay button {
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    color: #19b955;
+    cursor: pointer;
+    line-height: 10px;
+}
+
+.cnzz {
+    display: none;
+}

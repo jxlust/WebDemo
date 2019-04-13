@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>我要回答弹出页</title>
+	<link rel="stylesheet" href="../css/answ-popup.css">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="../public/css/reset.css">
+</head>
+<body>
+	<!-- 提问弹出层 -->
+	<div class="ask-layer clearfix">
+		<div class="ask-top clearfix">
+			<span class="">ps提示“无法完成请求，因为程序错误”对话框怎么办？</span>
+			<i class="iconfont fr">&#xe682;</i>
+		</div>
+		<div class="ask-center tip-right fl">
+			<textarea id="ques-content" style="display: none;"></textarea>
+			<div class="popup-foot clearfix">
+				<span class="fl foot-tips">草稿已保存</span>
+				<div class="foot-left">
+					<p>非常感谢您能回答此问题，审核通过后，将在前台展示，通过“很棒”后可以提升您的答案名次</p>
+				</div>
+				<button class="submit">回答</button>
+			</div>
+		</div>
+		<!-- 头像 -->
+		<div class="fl ask-right">
+			<img class="head" src="../images/u2290.png" />
+			<span>岁月静好</span>
+			<img class="vip-icon" src="../images/u2288.png" />
+		</div>
+
+		<!-- <div class="ask-content">
+		<form action="" method="post">
+			<input type="text" id="ask-title" class="input_a" name="user_name"  placeholder="请输入问题标题">
+			<input type="textarea" id="ask-detail" class="input_b" name="user_name"  placeholder="请输入问题内容 （编辑器）">
+			<div class="form-foot">
+				<span>您的问题溜溜将尽快帮助您回答，请持续关注</span>
+				<button class="submit fr">提交审核</button>
+			</div>			
+		</form>
+	</div> -->
+	</div>
+	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
+	<script src="../js/answ-popup.js"></script>
+	<script src="../layui/layui.js" charset="utf-8"></script>
+
+	<script>
+		layui.use('layedit', function() {
+			var layedit = layui.layedit;
+			/* layedit.build('ques-content', {
+				height: 285
+			}); //建立编辑器 */
+		});
+	</script>
+</body>
+</html>

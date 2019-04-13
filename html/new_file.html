@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.min.js"></script>
+		<script src="../public/js/global/jquery-1.8.3.min.js"></script>
+	</head>
+	<body>
+		<div id="#app">
+			<input type="text"  value="" maxcodelength="12"/>
+			<input type="text" maxlength="6" />
+		</div>
+	</body>
+	 <script>
+		 
+		//alert('hh哈哈s'.match(/[\u4e00-\u9fa5]{1}/g//));
+		(function(v){
+			//alert(v);
+		})(1);
+        $(function () {
+            $('input[type="text"]').on('input', function (e) {
+                var $that =  $(this);
+                var  limitLen = $that .attr("maxcodelength")                      //定义所需字节数
+                $that.attr('maxlength',limitLen);
+                setTimeout(function(){
+                    var value =  $that.val(),
+                        reg = /[\u4e00-\u9fa5]{1}/g,             //中文
+                        notReg = /\w{1}/g;                      //非中文
+                    var resultCn = value.match(reg);
+                    var resultEn = value.match(notReg);
+                    if(resultCn){
+                        limitLen = limitLen - (resultCn.length*2);
+                    }
+                    if(resultEn){
+                        limitLen = limitLen - resultEn.length;
+                    }
+					console.log('limitlen',limitLen);
+                    if(limitLen<=0){
+                        var finalLen = value.length+limitLen;
+                        value = value.substring(0,finalLen);
+                        $that.attr('maxlength',limitLen);
+                        $that[0].value = value;
+                    }
+                },0);
+
+            });
+        });
+    </script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+			},
+			//el 和 data 并未初始化
+			beforeCreate: function() {
+				//举个栗子：可以在这加个loading事件 
+				//console.log('beforeCreate 创建前状态===============》');
+			},
+			//完成了 data 数据的初始化，el没有
+			created: function() {
+				//在这结束loading，还做一些初始化，实现函数自执行 
+				//console.log('created 创建完毕状态===============》');
+			
+			},
+			//完成了 el 和 data 初始化 
+			beforeMount: function() {
+				//console.log('beforeMount 挂载前状态===============》');
+			},
+			beforeUpdate: function() {
+				//console.log('beforeUpdate 更新前状态===============》');
+			},
+			updated: function() {
+				//console.log('updated 更新完成状态===============》');
+			},
+			beforeDestroy: function() {
+				//console.log('beforeDestroy 销毁前状态===============》');
+			},
+			destroyed: function() {
+				//console.log('destroyed 销毁完成状态===============》');
+			},
+			/*渲染完dom 完成挂载*/
+			mounted: function() {
+				console.log("mounted..");
+			},
+			/*计算属性*/
+			computed: {
+				// 计算属性的 getter
+				loginMessage: function() {
+					return "我是开始的计算属性";
+					//return sessionStorage.getItem('userName');
+				},
+			},
+			methods: {
+			},
+			/*属性监听器*/
+			watch: {
+			}
+		});
+	</script>
+</html>

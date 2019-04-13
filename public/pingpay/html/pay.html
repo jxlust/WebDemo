@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>充值弹窗</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="/public/css/reset.css">
+    <link rel="stylesheet" href="/public/pingpay/css/pay.css">
+</head>
+<body>
+    <div class="paybox">
+        <!-- <div class="pay-close"><i class="iconfont">&#xe682;</i></div> -->
+        <div class="pay-logo clearfix">
+            <a href="" target="_blank"><img src="/public/images/common/logo.png" alt=""></a>
+            <h1>溜币充值</h1>
+        </div>
+
+        <div class="content">
+            <!-- 支付 -->
+            <!-- <div class="pay">
+                <h1>￥569</h1>
+                <div class="pay-code"></div>
+                <p>使用支付宝或微信，扫一扫付款</p>
+                <img class="pay-icon" src="/public/pingpay/images/pay-icon.jpg">
+                <a href="#" target="_blank">进入支付宝网页版支付</a>
+            </div> -->
+
+            <!-- 正在支付 -->
+            <!-- <div class="paying">
+                <h1>￥569</h1>
+                <h2>正在支付...</h2>
+                <p>请在&nbsp;<span class="count-donw">120</span>&nbsp;秒内，在手机上确认支付</p>
+                <span><i class="iconfont">&#xe6a0;</i>&nbsp;刷新二维码</span>
+            </div> -->
+
+            <!-- 支付超时 -->
+            <!-- <div class="timeout">
+                <i class="iconfont">&#xe6a2;</i>
+                <h2>付款超时</h2>
+                <p><i class="iconfont">&#xe6a0;</i>&nbsp;刷新二维码</p>
+            </div> -->
+            
+            <!-- 支付成功 -->
+            <div class="success">
+                <i class="iconfont">&#xe6a1;</i>
+                <h2>恭喜您，充值成功</h2>
+                <p><span>3</span>&nbsp;秒后跳到【个人中心 - 购买明细 - 溜币充值】</p>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <p class="tips"><i class="iconfont">&#xe6c3;</i>&nbsp;如有需要，请<a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDAzNzAwMl80NzU4MTNfODAwMDM3MDAyXzJf" target="_blank">联系我们</a></p>
+    </div>
+    <script src="/public/js/global/jquery-1.8.3.min.js"></script>
+    <script>
+        function countDown(el, callback) {
+            var i = $(el).text();
+            // 是否为正整数
+            if (!/^[1-9]\d*$/.test(i)) {
+                return false;
+            }
+            var timer = setInterval(function() {
+                i--;
+                $(el).text(i);
+                if (i==0) {
+                    clearInterval(timer);
+                    callback();
+                }
+            },1000);
+        }
+        countDown($('.count-donw'), function(){
+            console.log('支付超时');
+        });
+    </script>
+</body>
+</html>

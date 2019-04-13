@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>3d66软件首页</title>
+	<link rel="stylesheet" href="../public/css/flexslider.css">
+	<link rel="stylesheet" href="../public/css/reset.css">
+	<link rel="stylesheet" href="../public/css/swiper.min.css">
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
+	<link rel="stylesheet" href="../public/css/animate.min.css">
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/search-page.css" />
+
+</head>
+<body>
+	<div id="app" v-cloak>
+		<div class="clearfix"></div>
+		<!-- header   -->
+		<!-- 导航 -->
+		<div class="soft-nav clearfix">
+			<div class="container clearfix">
+				<div class="logo">
+					<a href="https://www.3d66.com/">
+						<img src="https://static.3d66.com/www/images/common/logo.png" alt="3D溜溜网">
+					</a>
+				</div>
+				<ul class="nav">
+					<li class="active"><a href="/">首页</a></li>
+					<li v-for="n in 3"><a href="/">导航测试-{{n}}</a></li>
+					<li><a href="/" class="tips">&nbsp;带提示</a></li>
+					<li><a href="/"><i class="iconfont">&#xe60b;</i>&nbsp;带图标</a></li>
+				</ul>
+				<a class="ask" href="javascript:;" onclick="jumpOrderList();"><i class="iconfont"></i>&nbsp;提问</a>
+				<div class="nav-inputbox fr">
+					<input type="text" class="js-searchkey" placeholder="请输入关键字" autocomplete="nope">
+					<i class="iconfont close">&#xe682;</i>
+					<i class="iconfont">&#xe617;</i>
+				</div>
+
+			</div>
+
+			<!-- 搜索 -->
+			<div class="search-header" id="searchId">
+				<div class="container clearfix">
+					<div class="search-tips">
+						<a href="/">3D溜溜网</a>
+						>
+						<a href="/">溜溜软件库</a>
+						>
+						<a href="">搜索结果</a>
+						>
+						<p>共找到<span>111</span>个“<span>MAX</span>”相关内容</p>
+					</div>
+					<div class="search-panel">
+						<div class="searchbox clearfix">
+							<div class="inputbox">
+								<input type="text" class="fl js-searchkey" placeholder="请输入关键字" autocomplete="nope">
+							</div>
+							<i class="iconfont">&#xe682;</i>
+							<div class="searchbtn js-search">搜 索</div>
+						</div>
+						<div class="search-hot clearfix">
+							<span>热度:</span>
+							<span class="sysFocusWord focus66">
+								<a href="/" rel="nofollow" target="_blank">溜云库</a>
+								<a href="/" rel="nofollow" target="_blank">3D魔术手</a>
+								<a href="/" rel="nofollow" target="_blank">3D魔术手</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- 中间部分 -->
+		<div class="content">
+			<div class="container">
+				<div class="soft-two-col clearfix">
+					<!-- 左侧列 -->
+					<div class="fl left-col">
+						<!-- 搜索页的信息导航 -->
+						<ul class="search-nav nav-bottom clearfix">
+							<li :class="{active: (nav.id==currentNav)}" v-for="nav in searchNavs" @mouseenter="showSearch(nav)" :key="nav.id">{{nav.name}}{{nav.count}}</li>
+						</ul>
+						<!-- 软件下载 -->
+						<div class="nav-bottom soft-search-nav">
+							<h3> <i class="iconfont">&#xe617;</i>&nbsp; 软件下载 </h3>
+						</div>
+						<!-- 软件下载列表 -->
+						<div class="soft-download-lists clearfix">
+							<div class="item-list clearfix" v-for="n in 3">
+								<a href="/" class="item-link"></a>
+								<div class="soft-icon fl">
+									<i class="new-icon" v-show="n==1"></i>
+									<img src="../images/u2290.png" />
+									<span class="soft-name">Photoshop</span>
+								</div>
+								<div class="soft-desc fl">
+									<h2>
+										<p>3d</p><span>max</span>
+										<p>2016破碎插件Rayfire v1.66 For Max 2016</p>
+									</h2>
+									<a href="/" class="install-btn"><i class="iconfont">&#xe617;</i> 安装教程</a>
+									<p class="desc-text">爆破破碎特效是动作影视动画中常见的镜头，制作起来也没有那么简单，到3dmax2016
+										版本的洗功能MFX也能解决相似的简单破碎效果，但是对于一些</p>
+								</div>
+								<div class="download-btn fr">
+									<span class="download-bg"></span>
+									<a class="download-txt" href="/">
+										<i class="iconfont">&#xe617;</i>
+										安全下载
+									</a>
+
+								</div>
+							</div>
+
+							<a class="more" href="/">更多“软件下载"搜索结果>></a>
+						</div>
+
+						<!-- 自学课程 -->
+						<div class="nav-bottom soft-search-nav">
+							<h3> <i class="iconfont">&#xe617;</i>&nbsp; 自学课程 </h3>
+						</div>
+
+						<div class="soft-course clearfix">
+							<div class="course-box" v-for="n in 9">
+								<div class="course-cover">
+									<a href="/">
+										<img src="../images/u2288.png" />
+									</a>
+								</div>
+								<div class="course-container">
+									<div class="course-header clearfix">
+										<img class="fl" src="../images/u26.png" />
+										<span class="fr">共112节</span>
+									</div>
+									<div class="course-textarea">
+										<div class="textarea-title">
+											<a target="_blank" href="/">室内设计师 职业规划内容</a>
+										</div>
+										<div class="textarea-container">
+											<div class="container-desc">讲解如何让绘制工业风起居室：场景建模、灯光参数、材质贴图、后期我是测试尾巴我是测试尾巴</div>
+										</div>
+										<div class="textarea-author clearfix">
+											<img src="../images/u236.png" />
+											<span class="author-name">插画工作室</span>
+											<span class="fr numbers">111人在学</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<a class="more" href="/">更多“自学课程"搜索结果>></a>
+						</div>
+
+						<!-- 溜溜问答 -->
+						<div class="nav-bottom soft-search-nav">
+							<h3> <i class="iconfont">&#xe617;</i>&nbsp; 溜溜问答 </h3>
+						</div>
+						<div class="ask-item clearfix" v-for="item in testAsk" :key="item.id">
+							<div class="ask-count ask-adopt">
+								<!-- <p>12</p>
+								<p>回答</p> -->
+								<img src="../images/u236.png" style="width: 22px;height: 28px;" />
+							</div>
+							<div class="fl ask-content">
+								<div class="ask-title">
+									<h2 class="text-truncate">AE CS5序列号序列号是什么AE CS5序列号序列CS5序什么什么？</h2>
+									<p> <span>悬赏</span> <span class="span-reward span-liubi">19溜币</span> </p>
+								</div>
+								<div class="ask-bottom clearfix">
+									<img src="../images/u236.png" />
+									<span class="ask-name fl">插画工作室</span>
+									<p class="ask-label fl"><span v-for="n in 3">溜云库{{n}}</span> </p>
+									<span class="ask-btn fr">
+										<span class="dl-bg"></span>
+										<span class="dl-txt">
+											我要回答
+										</span>
+									</span>
+									<p class="fr ask-get">回答问题可获<span class="liubi">30赠点</span>！</p>
+
+								</div>
+
+								<!-- 回答内容 -->
+								<div class="ask-tip tip-top">
+									<h2>木木客服</h2>
+									<p>如果只是比例缩小了，那你就检查一下视口比例，然后把比例调整回来就可以了哦！</p>
+								</div>
+
+							</div>
+
+						</div>
+
+						<a class="more" href="/">更多“溜溜问答"搜索结果>></a>
+
+						<!-- 安装教程 -->
+
+						<div class="nav-bottom soft-search-nav">
+							<h3> <i class="iconfont">&#xe617;</i>&nbsp; 安装教程 </h3>
+						</div>
+
+						<div class="soft-download-lists clearfix">
+							<div class="item-list clearfix" v-for="n in 3">
+								<a href="/" class="item-link"></a>
+								<div class="soft-icon fl">
+									<i class="new-icon" v-show="n==1"></i>
+									<img src="../images/u2290.png" />
+									<span class="soft-name">Photoshop</span>
+								</div>
+								<div class="soft-desc fl">
+									<h2>
+										<p>3d</p><span>max</span>
+										<p>2016破碎插件Rayfire v1.66 For Max 2016</p>
+									</h2>
+									<a href="/" class="install-btn"><i class="iconfont">&#xe617;</i> 软件下载</a>
+									<p class="desc-text">爆破破碎特效是动作影视动画中常见的镜头，制作起来也没有那么简单，到3dmax2016
+										版本的洗功能MFX也能解决相似的简单破碎效果，但是对于一些</p>
+								</div>
+							</div>
+
+							<a class="more" href="/">更多“安装教程"搜索结果>></a>
+						</div>
+
+					</div>
+
+					<div class="fl right-col">
+						<!-- 右侧开通vip -->
+						<div class="vip-open-bg">
+							<a href="/">
+								<img src="../images/u2288.png" />
+							</a>
+						</div>
+						<!-- 圈子 -->
+						<div class="soft-lists-header community clearfix">
+							<h3> <i class="iconfont">&#xe617;</i>&nbsp; 圈子 </h3>
+							<span class="fr more"> <a href="/">更多></a> </span>
+						</div>
+
+						<div class="community-c clearfix">
+							<p class="q-group">
+								<a v-for="n in 14" href="/" class="text-truncate" :title="'粉丝qq群'+n">
+									<i class="iconfont">&#xe617;</i> 粉丝qq群{{n}}
+								</a>
+							</p>
+							<div class="qr-code">
+								<div class="item" v-for="n in 4">
+									<img src="../images/u236.png" alt="">
+									<p class="text-truncate code-name">3D溜溜软件管家{{n}}</p>
+								</div>
+							</div>
+						</div>
+						<!-- 广告轮播 -->
+						<div class="flexslider ad-banner">
+							<ul class="slides">
+								<li v-for="n in 1"><img style="height: 149px;" src="https://img.3d66.com/focus/2018/20180408/d216a1db88a83a38768d947822836317.jpg"
+									 alt="" draggable="false">
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+				<!-- 广告位 -->
+				<div class="ad-content">
+					<a v-for="n in 4" class="ad-item" href="/">
+						<img src="../images/u32.png" />
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- footer -->
+		<div class="footer footer-top" style="height: 50px;background-color: #999;margin-top: 10px;">
+			我是页脚
+		</div>
+
+	</div>
+	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
+	<script src="../public/js/global/jquery.flexslider.js"></script>
+	<script src="../public/layer/layer.js"></script>
+	<script src="../public/plugin/js/swiper.min.js"></script>
+	<script src="../js/vue.min.js"></script>
+	<script src="../layui/layui.js"></script>
+	<script src="../js/soft-layui.js"> </script>
+	<script src="../js/banner.js"> </script>
+	<script>
+		$(function() {
+			var banOffTop = $(".search-header").offset().top; //获取到距离顶部的垂直距离
+			var scTop = 0; //初始化垂直滚动的距离
+			$(document).scroll(function() {
+				scTop = $(this).scrollTop(); //获取到滚动条拉动的距离
+				console.log(scTop); //
+				console.log('search', $("#searchId").is(":hidden"));
+
+				if (scTop > 74) {
+					//核心部分：当滚动条拉动的距离大于等于导航栏距离顶部的距离时，添加指定的样式
+					/* $(".search-header").fadeOut(); */
+					$(".soft-nav").addClass("fixNav");
+
+				} else {
+
+					$(".soft-nav").removeClass("fixNav");
+					/* $(".search-header").fadeIn(); */
+				}
+
+			})
+		})
+	</script>
+
+	<script>
+		var configVue = new Vue({
+			el: '#app',
+			data: {
+				chooseTypeIndex: -1,
+				currentNav: 0,
+				searchNavs: [{
+					id: 0,
+					name: "综合",
+					count: 212
+				}, {
+					id: 1,
+					name: "综合",
+					count: 212
+				}, {
+					id: 2,
+					name: "软件下载",
+					count: 22
+				}, {
+					id: 3,
+					name: "自学教程",
+					count: 12
+				}, {
+					id: 4,
+					name: "综合",
+					count: 212
+				}],
+				testAsk: [{
+						id: 1,
+						count: 10,
+						isAdopt: false,
+						text: 'AE CS5序列号序列号是什么AE CS5序列号序列CS5序什么什么？',
+						awardType: 0,
+						ask: {
+							name: '溜溜专属客服',
+							text: '如果只是比例缩小了，那你就检查一下视口比例，然后把比例调整回来就可以了哦！'
+						}
+					},
+					{
+						id: 2,
+						count: 10,
+						isAdopt: true,
+						text: 'AE CS5序列序什么什么？',
+						awardType: 1,
+						ask: {
+							name: '溜溜专属客服',
+							text: '如果只是比例以了哦！'
+						}
+					},
+					{
+						id: 3,
+						count: 2,
+						isAdopt: true,
+						text: 'AE CS5序列序什么什么？',
+						awardType: 1,
+						ask: {
+							name: '溜溜专属客服',
+							text: '如果只是比例以了哦！'
+						}
+					},
+					{
+						id: 4,
+						count: 0,
+						isAdopt: false,
+						text: 'AE CS5序列序什么什么？',
+						awardType: 1,
+						ask: {
+							name: '溜溜专属客服',
+							text: '如果只是比例以了哦！'
+						}
+					}
+				],
+				/*搜索框 */
+				msg: 'ss',
+				searchData: [],
+				chooseIndex: -1,
+			},
+			//el 和 data 并未初始化
+			beforeCreate: function() {
+				//举个栗子：可以在这加个loading事件 
+				//console.log('beforeCreate 创建前状态===============》');
+			},
+			//完成了 data 数据的初始化，el没有
+			created: function() {
+				//在这结束loading，还做一些初始化，实现函数自执行 
+				//console.log('created 创建完毕状态===============》');
+
+			},
+			//完成了 el 和 data 初始化 
+			beforeMount: function() {
+				//console.log('beforeMount 挂载前状态===============》');
+			},
+			beforeUpdate: function() {
+				//console.log('beforeUpdate 更新前状态===============》');
+			},
+			updated: function() {
+				//console.log('updated 更新完成状态===============》');
+			},
+			beforeDestroy: function() {
+				//console.log('beforeDestroy 销毁前状态===============》');
+			},
+			destroyed: function() {
+				//console.log('destroyed 销毁完成状态===============》');
+			},
+			/*渲染完dom 完成挂载*/
+			mounted: function() {
+				console.log("mounted..");
+			},
+			/*计算属性*/
+			computed: {
+				// 计算属性的 getter
+				loginMessage: function() {
+					// `this` 指向 vm 实例
+					return "我是开始的计算属性";
+					//return sessionStorage.getItem('userName');
+				},
+			},
+			methods: {
+				showSearch: function(nav) {
+					this.currentNav = nav.id;
+				},
+
+			},
+			/*属性监听器*/
+			watch: {
+				fieldTypeSelected: function(newQuestion, oldQuestion) {
+					console.log("new:" + newQuestion + ",old:" + oldQuestion);
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>

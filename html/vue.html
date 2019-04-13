@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.fade-enter-active,
+			.fade-leave-active {
+				transition: all .5s;
+			}
+
+			.fade-enter,
+			.fade-leave-to
+			/* .fade-leave-active below version 2.1.8 */
+				{
+				 opacity: 0; 
+				/* max-height: 0; */
+				/* background-color: fuchsia; */
+			}
+			.fade-enter-to,
+			.fade-leave{
+				opacity: 1; 
+				/* background-color: #FF0000; */
+			}
+		</style>
+		<script src="../js/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button v-on:click="show = !show">
+				Toggle
+			</button>
+			<transition name="fade">
+				<p v-if="show">hello</p>
+			</transition>
+			<div>asdfasdfasdfasf</div>
+		</div>
+	</body>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				show: true
+			},
+			//el 和 data 并未初始化
+			beforeCreate: function() {
+				//举个栗子：可以在这加个loading事件 
+				//console.log('beforeCreate 创建前状态===============》');
+			},
+			//完成了 data 数据的初始化，el没有
+			created: function() {
+				//在这结束loading，还做一些初始化，实现函数自执行 
+				//console.log('created 创建完毕状态===============》');
+
+			},
+			//完成了 el 和 data 初始化 
+			beforeMount: function() {
+				//console.log('beforeMount 挂载前状态===============》');
+			},
+			beforeUpdate: function() {
+				//console.log('beforeUpdate 更新前状态===============》');
+			},
+			updated: function() {
+				//console.log('updated 更新完成状态===============》');
+			},
+			beforeDestroy: function() {
+				//console.log('beforeDestroy 销毁前状态===============》');
+			},
+			destroyed: function() {
+				//console.log('destroyed 销毁完成状态===============》');
+			},
+			/*渲染完dom 完成挂载*/
+			mounted: function() {
+				console.log("mounted..");
+			},
+			/*计算属性*/
+			computed: {
+				// 计算属性的 getter
+				loginMessage: function() {
+					return "我是开始的计算属性";
+					//return sessionStorage.getItem('userName');
+				},
+			},
+			methods: {},
+			/*属性监听器*/
+			watch: {}
+		});
+	</script>
+</html>

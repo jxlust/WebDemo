@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/video-js.min.css" />
+		<link rel="stylesheet" href="../css/customer-video.css" />
+	</head>
+	<body>
+		<div style="width: 640px;">
+			<video id="my-player" class="video-js " controls preload="auto" poster="../images/u26.png" width="640" height="264"
+			 data-setup=''>
+				<source src="https://img.3d66.com/manager/20181206/758d1e66abff9a3c07d5b168b211bda3.mp4" type="video/mp4">
+				</source>
+				<!-- <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+				</source> -->
+				<!-- 	<source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
+				</source>
+				<source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+				</source> -->
+				<p class="vjs-no-js">
+					To view this video please enable JavaScript, and consider upgrading to a
+					web browser that
+					<a href="https://videojs.com/html5-video-support/" target="_blank">
+						supports HTML5 video
+					</a>
+				</p>
+			</video>
+			<button id="reload">reload</button>
+		</div>
+
+		<!-- 		<div style="width: 640px;">
+			<video poster="../images/u26.png" class="course-video" id="materialVideo" src="https://img.3d66.com/manager/20181206/758d1e66abff9a3c07d5b168b211bda3.mp4"
+			 width="100%" controls="">您的浏览器暂不支持，请升级您的浏览器或切换到极速模式
+			</video>
+			<select id="rateSelect">
+				<option value="0.5">0.5</option>
+				<option value="1" selected>1</option>
+				<option value="1.5">1.5</option>
+				<option value="2.0">2.0</option>
+			</select>
+			<button id="startPlay">Play</button>
+		</div> -->
+
+
+	</body>
+	<script src="../js/video.min.js"></script>
+	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
+
+	<script>
+		var options = {
+			fluid: true,
+			//会用第一项技术去播放，不行再使用后面的选项 data-setup
+			techOrder: ["html5", "flash", "other supported tech"],
+			/* aspectRatio: "640:267", */
+			playbackRates: [0.5, 1, 1.5, 2],
+			controlBar: {
+				volumePanel: {
+					inline: false,
+					vertical: true
+				}, //竖着的音量条
+			}
+			/*autoplay:true */
+		};
+		var player = videojs('my-player', options, function onPlayerReady() {
+			console.log('ready', 'Your player is ready!');
+			
+			var newbtn = document.createElement('div');
+			newbtn.innerHTML = 	'<button class="vjs-control vjs-next-panel" id="downloadButton"><i class="iconfont fa fa-expand" title="">&#xe652;</i></button>';
+			var controlBar = document.getElementsByClassName('vjs-control-bar')[0];
+			insertBeforeNode = document.getElementsByClassName('vjs-play-control')[0];
+			controlBar.insertBefore(newbtn, insertBeforeNode.nextSibling);
+			//this.play();
+		});
+
+		player.on('play', function() {
+			console.log('开始/恢复播放');
+		});
+		player.on('pause', function() {
+			console.log('暂停播放');
+		});
+		player.on('ended', function() {
+			console.log('结束播放');
+		});
+
+		player.on('timeupdate', function() {
+			//console.log(player.currentTime());
+			//解决Android好像有不触发ended的bug方案
+			// 如果 currentTime() === duration()，则视频已播放完毕
+			if (player.duration() != 0 && player.currentTime() === player.duration()) {
+				// 播放结束
+			}
+		});
+
+		$("#reload").click(function() {
+			// 			player.pause()
+			// 			player.load();
+			console.log(11111);
+			player.src({
+				type: "video/mp4",
+				src: 'https://img.3d66.com/manager/20181206/758d1e66abff9a3c07d5b168b211bda3.mp4'
+			});
+			player.play();
+		});
+	</script>
+
+	<script>
+		/*  元素video速率播放 */
+		var myVideo = $('#materialVideo')[0];
+		console.log('myvideo', myVideo);
+		$('#rateSelect').on('change', function() {
+			console.log('rate', $(this).val());
+			myVideo.playbackRate = $(this).val();
+			setTimeout(function() {
+				myVideo.play();
+			}, 100)
+
+		})
+		$('#startPlay').click(function() {
+			myVideo.play();
+		});
+		
+	</script>
+	
+	<!-- <script>
+		var player = videojs(videoId, {
+			"controls": true,
+			"autoplay": false,
+			"preload": "auto",
+			"loop": false,
+			controlBar: {
+				captionsButton: false,
+				chaptersButton: false,
+				playbackRateMenuButton: true,
+				LiveDisplay: true,
+				subtitlesButton: false,
+				remainingTimeDisplay: true,
+				progressControl: true,
+				volumeMenuButton: {
+					inline: false,
+					vertical: true
+				}, //竖着的音量条
+				fullscreenToggle: true
+			}
+		}, function() {
+			var newbtn = document.createElement('btn');
+			newbtn.innerHTML =
+				'<button class="vjs-control" id="downloadButton"><i class="fa fa-expand" title="全屏"></i></button>' +
+				'<button class="vjs-control" id="full_screen_button"><i class="fa fa-chrome" title="截图"></i></button>';
+			var controlBar = document.getElementsByClassName('vjs-control-bar')[0];
+			insertBeforeNode = document.getElementsByClassName('vjs-fullscreen-control')[0];
+			controlBar.insertBefore(newbtn, insertBeforeNode);
+			player.src({
+				type: "rtmp/flv",
+				src: r.roomLiveUri
+			});
+			player.play();
+		});
+	</script> -->
+</html>

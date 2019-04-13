@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/ask-popup.css">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="../public/css/reset.css">
+</head>
+<body>
+	<!-- 提问弹出层 -->
+	<div class="ask-layer">
+		<div class="ask-top clearfix">
+			<span class=""></span>
+			<i class="iconfont fr">&#xe682;</i>
+			<!-- <input type="button" class="close" value="关闭" onclick="closeAsk()"> -->
+		</div>
+		<div class="ask-center">
+			<div class="input-box">
+				<input type="text" id="ques-input" class="ques-input" value="" placeholder="请输入问题标题?">
+				<div class="may-related">
+					<!-- <div class="related-top">
+					<span class="fl">您的问题可能已经有回答</span>
+					<i class="iconfont fr">&#xe682;</i>
+				</div>
+				<ul class="content">
+					<li class="clearfix">
+						<a class="fl" href="#">今天天气真不错呵，今天天气真不错呵，今天天气真不错呵，今天天气真不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天气真不错呵，</a>
+						<span class="fr">3个答案</span>
+					</li>
+					<li class="clearfix">
+						<a class="fl" href="#">今天天气真不错呵，今天天气真不错呵，今天天气真不错呵，今天天气真不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天气真不错呵，</a>
+						<span class="fr">3个答案</span>
+					</li>
+					<li class="clearfix">
+						<a class="fl" href="#">今天天气真不错呵，今天天气真不错呵，今天天气真不错呵，今天天气真不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天不错呵，今天天气真不错呵，</a>
+						<span class="fr">3个答案</span>
+					</li>
+					
+				</ul> -->
+				</div>
+			</div>
+
+			<textarea id="ques-content" style="display: none;"></textarea>
+			<div class="popup-foot">
+				<span>您的问题溜溜将尽快帮助您回答，请持续关注</span>
+				<button class="submit-btn">提交审核</button>
+			</div>
+		</div>
+	</div>
+	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
+	<script src="../layui/layui.js"></script>
+	<script src="../js/ask-popup.js"></script>
+	<script>
+		$(function() {
+			$("#ques-input").bind("input propertychange change", function(event) {
+				if (1) {
+					var contentHtml = '';
+
+					contentHtml += '<div class="related-top">';
+					contentHtml += '<span class="fl">您的问题可能已经有回答</span>';
+					contentHtml += '<i class="iconfont fr" onclick="closeRelated()">&#xe682;</i>';
+					contentHtml += '</div>';
+					contentHtml += '<ul class="content">';
+					for (var i = 0; i < 5; i++) {
+						contentHtml += '<li class="clearfix">';
+						contentHtml +=
+							'<a class="fl" href="#">今天天气真不错呵，今天天气真不错呵打生打死，asdasdasasasasdasdasdasdasasdasdassdadasdas，今天天不错呵，今天撒旦天气真不错呵，</a>';
+						contentHtml += '<span class="fr">3个答案</span>';
+						contentHtml += '</li>';
+					}
+					contentHtml += '</ul>';
+
+					$('.may-related').html(contentHtml);
+
+				} else {
+					$('.may-related').html('');
+				}
+				$('.may-related').css('display', 'block');
+			});
+
+
+		});
+	</script>
+
+
+
+</body>
+</html>

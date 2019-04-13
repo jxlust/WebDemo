@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+/* 提问弹出层 */
+.ask-layer {
+	width: 789px;
+	height: 600px;
+	background: rgba(255, 255, 255, 1);
+	border-radius: 8px 8px 4px 8px;
+}
+
+.ask-top {
+	box-sizing: border-box;
+	width: 100%;
+	height: 42px;
+	line-height: 42px;
+	color: #333333;
+	padding-left: 24px;
+	padding-right: 14px;
+	font-size: 18px;
+}
+
+.ask-top .iconfont {
+	font-size: 24px;
+}
+
+
+.ask-center {
+	margin: 30px 29px 14px 29px;
+	z-index: 1;
+}
+
+.input-box {
+	position: relative;
+}
+
+.ask-layer .ques-input {
+	height: 38px;
+	width: 640px;
+	line-height: 38px;
+	border: 1px solid #B9B9B9;
+	text-indent: 16px;
+
+}
+
+.may-related {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 440px;
+	/* border: 1px solid #D3D3D3; */
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	font-size: 14px;
+	color: #959595;
+	border-radius: 2px;
+	z-index: 100;
+	background-color: #fff;
+	display: none;
+}
+
+.related-top {
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	border-bottom: 1px solid #CDCDCD;
+}
+
+.related-top span {
+	padding-left: 14px;
+}
+
+.related-top .iconfont {
+	font-size: 16px;
+	padding: 0 10px;
+}
+
+.related-top .iconfont:hover {
+	cursor: pointer;
+}
+
+.may-related .content {
+	padding: 0 12px 4px 14px;
+	margin-top: -4px;
+}
+
+.may-related .content li {
+	margin-top: 18px;
+	font-size: 14px;
+	max-height: 40px;
+	overflow: hidden;
+}
+
+.may-related .content li:hover a,
+.may-related .content li:hover span {
+	color: #19B955;
+}
+
+.may-related .content li span {
+	color: #656565;
+}
+
+.may-related .content li a {
+	width: 310px;
+	display: inline-block;
+	color: #959595;
+}
+
+.layui-layedit {
+	margin-top: 10px;
+}
+
+.popup-foot {
+	height: 62px;
+	line-height: 62px;
+	border: 1px solid #e6e6e6;
+	border-top: none;
+	position: relative;
+	display: none;
+}
+
+.popup-foot span {
+	text-indent: 10px;
+	display: inline-block;
+	font-size: 12px;
+	color: #6F6F6F;
+}
+
+.popup-foot .submit-btn {
+	position: absolute;
+	top: 11px;
+	right: 9px;
+	height: 40px;
+	line-height: 40px;
+	width: 100px;
+	background-color: #19B955;
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+}

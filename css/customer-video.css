@@ -1,0 +1,23 @@
+.vjs-paused .vjs-big-play-button,
+.vjs-paused.vjs-has-started .vjs-big-play-button {
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	height: 1.5em;
+	width: 1.5em;
+	border-radius: 50%;
+}
+.vjs-volume-panel .vjs-control .vjs-volume-panel-horizontal{
+	
+}
+
+.vjs-next-panel{
+	
+}
+.vjs-next-panel > i.iconfont{
+	font-size: 16px;
+	vertical-align: 6px;
+}

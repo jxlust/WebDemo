@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="../public/css/reset.css" />
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			.navbar {
+				height: 70px;
+			}
+
+			.navbar {
+				background: #000;
+			}
+
+			.navbar-fixed {
+				height: 70px;
+				background: #000;
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				z-index: 9999;
+			}
+			.logo {
+    float: left;
+    margin: 12px 0;
+}
+
+			.container {
+				width: 1300px;
+				margin: 0 auto;
+			}
+
+			.clearfix:after {
+				display: block;
+				clear: both;
+				content: "";
+				visibility: hidden;
+				height: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="height: 32px;width: 100%;background: #CCCCCC;"></div>
+		<div class="navbar">
+			<div class="site-nav-wraper ">
+				<div class="container clearfix">
+					<div class="logo clearfix">
+						<a href="http://www.dev.3d66.com/"><img src="http://static.dev.3d66.com/vip2/images/logo.png" alt="3D溜溜网"></a>
+						<a href="http://vip.dev.3d66.com/"><span>溜溜VIP</span></a>
+					</div>
+					<!-- <ul class="nav clearfix">
+						<li>
+							<a href="http://vip.dev.3d66.com/index.html">首页</a>
+						</li>
+						<li>
+							<a href="http://vip.dev.3d66.com/privilege.html">VIP特权</a>
+						</li>
+						<li>
+							<a href="http://vip.dev.3d66.com/growth.html">成长体系</a>
+						</li>
+						<li class="active">
+							<a href="http://vip.dev.3d66.com/signed.html">VIP福利区</a>
+						</li>
+					</ul>
+					<a href="javascript:;" class="nav-right j-open-vip">开通VIP</a> -->
+				</div>
+			</div>
+		</div>
+
+		<div style="height: 1800px;width: 100%;background: #eee;margin: 0;" id="testc">
+
+		</div>
+		阿斯顿发生
+	</body>
+	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
+	<!-- <script src="../js/stickTop.js"> -->
+	</script>
+	<script>
+		$(function() {
+			console.log('top', top);
+	/* 		$(window).scroll(function() {
+				if ($(document).scrollTop() > 74) {
+					$('.site-nav-wraper').addClass('navbar-fixed')
+
+				} else {
+					$('.site-nav-wraper').removeClass('navbar-fixed')
+
+				}
+			}); */
+			
+			 // 导航栏，监听置顶
+    $(window).scroll(function () {
+
+        if ($(document).scrollTop() >= 32) {
+            $('.site-nav-wraper').addClass("navbar-fixed");
+        } else {
+            $('.site-nav-wraper').removeClass("navbar-fixed");
+        }
+    });
+
+		});
+	</script>
+</html>

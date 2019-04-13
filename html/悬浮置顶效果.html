@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="../public/css/reset.css" />
+		<style>
+			.nav {
+				display: inline-block;
+				width: 100%;
+			}
+
+			.header-wraper .wp {
+				width: 100%;
+			}
+
+			.header-wraper .ul-nav {
+				position: relative;
+			}
+
+			.nav ul li {
+				display: inline-block;
+			}
+
+			.header-wraper .ul-nav {
+				/* height: 100px;
+				line-height: 100px; */
+				border: 1px solid #e0e0e0;
+				padding: 10px;
+				display: block;
+				text-align: center;
+				margin-bottom: 10px;
+				position: relative;
+				-webkit-transition: all 0.4s;
+				-moz-transition: all 0.4s;
+				-o-transition: all 0.4s;
+				transition: all 0.4s;
+			}
+
+			body.stickUp .header-wraper .ul-nav {
+				margin-bottom: 0;
+				border-bottom: none;
+				text-align: left;
+				padding-left: 125px;
+			}
+
+			.isStuck {
+				z-index: 9999;
+				background: greenyellow;
+			}
+
+			.header-wraper .showinput {
+				display: none;
+				background: #F0AD4E;
+				position: relative;
+				-webkit-transition: all 0.4s;
+				-moz-transition: all 0.4s;
+				-o-transition: all 0.4s;
+				transition: all 0.4s;
+			}
+
+			body.stickUp .header-wraper .showinput {
+				display: inline-block;
+				background: #FFF3CD;
+			}
+
+			.header-wraper .search {
+				/* position: absolute; */
+				width: 100%;
+				opacity: 1;
+				z-index: 10;
+				display: block;
+				padding: 30px 0;
+				/* visibility: ; */
+				/* height: 250px;
+				line-height: 250px; */
+				background: #FF7F5E;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+
+			body.stickUp .header-wraper .search {
+				/* display: none; */
+				/* height: 0; */
+				z-index: 0;
+				display: none;
+				opacity: 0;
+				/* visibility: hidden; */
+			}
+
+			body.stickUp .header-wraper .wp {
+				width: 1200px;
+				position: relative;
+			}
+			
+			.ulul{
+				float: left;
+			}
+			.ulul li{
+				float: left;
+				display: inline-block;
+			}
+			.aaa{
+				float: right;
+				vertical-align: middle;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header-wraper nav " id="float">
+			<div class="wp">
+				<ul class="ul-nav">
+					<li>导航1</li>
+					<li>导航1</li>
+					<li>导航1</li>
+					<li>导航1</li>
+					<li>导航1</li>
+					<li>导航1</li>
+					<div class="showinput" style=""><input value="hhsldfjal" /></div>
+				</ul>
+				<div class="search">
+					<input style="height: 50px;width: 300px;" />
+				</div>
+			</div>
+		</div>
+
+		<div style="height: 200px;width: 100%;background: #eee;position: relative;margin: 0;" id="testc" class="clearfix">
+				<ul style="display: inline-block;" class="ulul clearfix" >
+					<li>sflajds</li>
+					<li>sflajds</li>
+				</ul>
+				<a class="aaa">合适的法律</a>
+		</div>
+		阿斯顿发生
+	</body>
+	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
+	<script src="../js/stickTop.js">
+	</script>
+	<script>
+		$(function() {
+			$(document).ready(function() {
+				/* 顶部滚动悬停 */
+				$(document).ready(function() {
+					$('.header-wraper').stickUp({
+						/* marginTop: 'auto' */
+					});
+				});
+			});
+		});
+	</script>
+</html>
