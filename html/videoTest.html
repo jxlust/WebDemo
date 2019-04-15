@@ -8,8 +8,8 @@
 		<link rel="stylesheet" href="../css/customer-video.css" />
 	</head>
 	<body>
-		<div style="width: 640px;">
-			<video id="my-player" class="video-js " controls preload="auto" poster="../images/u26.png" width="640" height="264"
+		<div style="width: 840px;">
+			<video id="my-player" class="video-js " controls preload="auto" poster="../images/u26.png" width="840" height="364"
 			 data-setup=''>
 				<source src="https://img.3d66.com/manager/20181206/758d1e66abff9a3c07d5b168b211bda3.mp4" type="video/mp4">
 				</source>
@@ -28,6 +28,10 @@
 				</p>
 			</video>
 			<button id="reload">reload</button>
+
+			<p id="p1">This is a paragraph.</p>
+			<p>fsdafldjasldfjalf</p>
+			<p id="p2">This is second paragraph.</p>
 		</div>
 
 		<!-- 		<div style="width: 640px;">
@@ -49,60 +53,79 @@
 	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
 
 	<script>
-		var options = {
-			fluid: true,
-			//会用第一项技术去播放，不行再使用后面的选项 data-setup
-			techOrder: ["html5", "flash", "other supported tech"],
-			/* aspectRatio: "640:267", */
-			playbackRates: [0.5, 1, 1.5, 2],
-			controlBar: {
-				volumePanel: {
-					inline: false,
-					vertical: true
-				}, //竖着的音量条
-			}
-			/*autoplay:true */
-		};
-		var player = videojs('my-player', options, function onPlayerReady() {
-			console.log('ready', 'Your player is ready!');
-			
-			var newbtn = document.createElement('div');
-			newbtn.innerHTML = 	'<button class="vjs-control vjs-next-panel" id="downloadButton"><i class="iconfont fa fa-expand" title="">&#xe652;</i></button>';
-			var controlBar = document.getElementsByClassName('vjs-control-bar')[0];
-			insertBeforeNode = document.getElementsByClassName('vjs-play-control')[0];
-			controlBar.insertBefore(newbtn, insertBeforeNode.nextSibling);
-			//this.play();
-		});
-
-		player.on('play', function() {
-			console.log('开始/恢复播放');
-		});
-		player.on('pause', function() {
-			console.log('暂停播放');
-		});
-		player.on('ended', function() {
-			console.log('结束播放');
-		});
-
-		player.on('timeupdate', function() {
-			//console.log(player.currentTime());
-			//解决Android好像有不触发ended的bug方案
-			// 如果 currentTime() === duration()，则视频已播放完毕
-			if (player.duration() != 0 && player.currentTime() === player.duration()) {
-				// 播放结束
-			}
-		});
-
-		$("#reload").click(function() {
-			// 			player.pause()
-			// 			player.load();
-			console.log(11111);
-			player.src({
-				type: "video/mp4",
-				src: 'https://img.3d66.com/manager/20181206/758d1e66abff9a3c07d5b168b211bda3.mp4'
+		$(function(){
+				var options = {
+				fluid: true,
+				//会用第一项技术去播放，不行再使用后面的选项 data-setup
+				techOrder: ["html5", "flash", "other supported tech"],
+				/* aspectRatio: "640:267", */
+				playbackRates: [0.5, 1, 1.5, 2],
+				controlBar: {
+					volumePanel: {
+						inline: false,
+						vertical: true
+					}, //竖着的音量条
+				}
+				/*autoplay:true */
+			};
+			var player = videojs('my-player', options, function onPlayerReady() {
+				console.log('ready', 'Your player is ready!');
+				//加入下一节按钮
+				var nextDiv = document.createElement('div');
+				nextDiv.id = '';
+				nextDiv.className = 'nextDivStyle vjs-control';
+				nextDiv.innerHTML =
+					'<button class="vjs-control vjs-next-panel" id="nextButton"><i class="iconfont fa fa-expand" title="">&#xe652;</i></button>';
+				var controlBar = document.getElementsByClassName('vjs-control-bar')[0];
+				insertBeforeNode = document.getElementsByClassName('vjs-play-control')[0];
+				controlBar.insertBefore(nextDiv, insertBeforeNode.nextSibling);
+				
+				//加入选择画质按钮
+				var qualityDiv = document.createElement('div');
+				qualityDiv.id = '';
+				qualityDiv.className = 'qualityStyle vjs-control';
+				qualityDiv.innerHTML =
+					'<button class="vjs-control vjs-quality-panel" id="qualityButton">超清</button>';
+				var rateNode = $('div.vjs-playback-rate')[0];
+				controlBar.insertBefore(qualityDiv, rateNode);
+				
+				/* 替换位置 */
+				$("div.vjs-playback-rate").after($("div.vjs-volume-panel"));
+				
+				//this.play();
 			});
-			player.play();
-		});
+			
+			player.on('play', function() {
+				console.log('开始/恢复播放');
+			});
+			player.on('pause', function() {
+				console.log('暂停播放');
+			});
+			player.on('ended', function() {
+				console.log('结束播放');
+			});
+			
+			player.on('timeupdate', function() {
+				//console.log(player.currentTime());
+				//解决Android好像有不触发ended的bug方案
+				// 如果 currentTime() === duration()，则视频已播放完毕
+				if (player.duration() != 0 && player.currentTime() === player.duration()) {
+					// 播放结束
+				}
+			});
+			
+			$("#reload").click(function() {
+				// 			player.pause()
+				// 			player.load();
+				console.log(11111);
+				player.src({
+					type: "video/mp4",
+					src: 'https://img.3d66.com/manager/20181206/758d1e66abff9a3c07d5b168b211bda3.mp4'
+				});
+				player.play();
+			});
+		})
+	
 	</script>
 
 	<script>
@@ -120,9 +143,8 @@
 		$('#startPlay').click(function() {
 			myVideo.play();
 		});
-		
 	</script>
-	
+
 	<!-- <script>
 		var player = videojs(videoId, {
 			"controls": true,
