@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../../../public/css/reset.css">
+		<link rel="stylesheet" href="../../../public/css/common.css">
+		<link rel="stylesheet" href="../../css/common.css">
+		<link rel="stylesheet" href="../../css/index.css" />
+		<link rel="stylesheet" href="../../css/search-index.css">
+
+	</head>
+	<body>
+
+		<section class="search-bg show"></section>
+		<section class="search-area show">
+			<i class="close-btn"></i>
+			<span class="search-tips">
+				<i class="search-icon"></i>
+				<span> 拖拽图片到这里搜图</span>
+			</span>
+		</section>
+
+		<div class="topbar" style="height: 30px;background-color: #999999;"></div>
+		<!-- header -->
+		<!-- 测试body -->
+		<div style="height: 1000px;width: 100%;">
+
+			<input id="fileInput" type="file" onchange="processFiles(this.files)">
+			<img id="thumbnail">
+			<div id="box"></div>
+		</div>
+
+
+	</body>
+	<script src="../../../public/js/global/jquery-1.8.3.min.js"></script>
+	<script>
+		function showDiv() {
+			$(".search-bg").height($(window).height()).width($(window).width()); //使遮罩的背景覆盖整个页面
+			$(".search-bg").show();
+			$(".search-area").show();
+			$(".search-area").height($(window).height() - 100).width($(window).width() - 150); //使遮罩的背景覆盖整个页面
+			var search_areaTop = ($(window).height() - $(".search-area").height()) / 2; //计算弹出的框距离页面顶部的距离
+			var search_areaWidth = ($(window).width() - $(".search-area").width()) / 2; //计算弹出的框距离页面左边的距离
+			$(".search-area").css({
+				"top": search_areaTop,
+				"left": search_areaWidth,
+				'line-height': $(".search-area").height() + "px"
+			});
+		}
+
+		function closeDiv() {
+			if ($(".search-bg").is(":visible")) {
+				$(".search-bg").hide();
+				$(".search-area").hide();
+			}
+		}
+		
+		$(document).on('drop', function(e) {
+			console.log('drop......1');
+			//showDiv();
+			//取消事件传播及默认行为
+			e.stopPropagation();
+			e.preventDefault();
+			
+			//取得拖进来的文件
+			var data = e.dataTransfer;
+			var files = data.files;
+		})
+
+		function ignoreDrag(e) {
+			//因为我们在处理拖放，所以应该确保没有其他元素会取得这个事件
+			e.stopPropagation();
+			e.preventDefault();
+		}
+
+		document.ondragenter = ignoreDrag;
+		document.ondragover = ignoreDrag;
+
+		document.addEventListener("drop", function(e) {
+			console.log(111111111111);
+			//取消事件传播及默认行为
+			e.stopPropagation();
+			e.preventDefault();
+
+			//取得拖进来的文件
+			var data = e.dataTransfer;
+			var files = data.files;
+			//将其传给真正的处理文件的函数
+			processFiles(files);
+		});
+
+		function processFiles(files) {
+			var file = files[0];
+			//var output = document.getElementById("fileOutput");
+			//创建FileReader
+			var reader = new FileReader();
+			//告诉它在准备好数据之后做什么
+			reader.onload = function(e) {
+				//使用图像URL来绘制dropBox的背景
+				document.getElementById('box').style.backgroundImage = "url('" + e.target.result + "')";
+			};
+			//读取图片
+			reader.readAsDataURL(file);
+		}
+
+		function showFileInput() {
+			var fileInput = document.getElementById("fileInput");
+			fileInput.click();
+		}
+
+		$(function() {
+			$('body').on('click', '.search-bg, .search-area', function() {
+				closeDiv();
+				$('.soutu-icon').click();
+			})
+
+			$('body').on({
+				click: function(e) {
+					e = e || window.event;
+
+					if ($(e.target).closest('form').length == 0) {
+						if (!$('#soutu_wrap').hasClass('hide')) {
+							$('.soutu-icon').click();
+						}
+					}
+
+				}
+			})
+
+
+		})
+	</script>
+</html>

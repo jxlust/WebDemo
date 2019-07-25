@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>css3 animation动画停留在最后一帧</title>
+		<meta name="viewport" content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			.m-test {
+				width: 100px;
+				height: 100px;
+				animation: test-animation 5s;
+				background: #FF0000;
+				animation-fill-mode: forwards;
+			}
+
+			@-webkit-keyframes test-animation {
+				0% {
+					width: 0;
+				}
+
+				99% {
+					width: 100%;
+				}
+
+				100% {
+					width: 0;
+				}
+			}
+
+			@keyframes test-animation {
+				0% {
+					width: 0;
+				}
+
+				99% {
+					width: 100%;
+				}
+
+				100% {
+					width: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="m-test"></div>
+		<a href="https://www.baidu.com" target="_blank" id="aId">测试连接</a>
+		<div class="btn">点击</div>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+		<script type="text/javascript">
+			var formData = new FormData();
+			formData.append('name', 'xiaoli');
+			//console.log('name',formData.get('name'));
+			console.log('formdata', formData);
+			setTimeout(function() {
+				//$('#aId')[0].trigger('click');
+				//$('#aId')[0].click();
+				//newOpenWindow('https://www.baidu.com');
+			}, 3000)
+			$('.btn').click(function(event){
+				event.stopPropagation();
+				newOpenWindow('https://www.3d66.com/sotu/search_result?file_img=https://pic.3d66.com/thuimg/newcache/324/4070/407053_20681.jpg');
+			});
+			//新窗口打开
+			function newOpenWindow(url) {
+				var a = document.createElement('a');
+				a.setAttribute('href', url);
+				a.setAttribute('style', 'display:none');
+				a.setAttribute('target', '_blank');
+				document.body.appendChild(a);
+				a.click();
+				a.parentNode.removeChild(a);
+			};
+		</script>
+	</body>
+</html>

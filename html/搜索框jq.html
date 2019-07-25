@@ -37,9 +37,10 @@
 		<!-- 	<input id="text" value="" style="width: 200px;height: 30px;" />
 		<ul id="list">
 		</ul> -->
+		<a href="/" id="testa"><i class="iconfont">a</i> &nbsp; 2 </a>
 		<div id="app">
-			<input type="text" id="txt"  />
-			<input type="button" id="btn" value="百度一下"/>
+			<input type="text" id="txt" />
+			<input type="button" id="btn" value="百度一下" />
 			<div class="box" id="box">
 				<ul>
 				</ul>
@@ -48,7 +49,16 @@
 
 	</body>
 	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
-
+	<script>
+		$('#testa').on('click', test);
+		function test(e) {
+			console.log($(this).prop('lastChild').nodeValue);
+			e.preventDefault();
+		}
+		(function(){
+			console.log('1');
+		}());
+	</script>
 	<script>
 		//这部分是根据输入框中的事件来做的事情
 		//应该使用keyup来判断是否要发送请求，如果使用keydown会发现输入一个词后要再按一下键盘才能发送请求获取数据，使用keyup在输入完词以后就会立即发送请求
@@ -87,7 +97,7 @@
 					},
 					error: function(res) {
 						console.log(res)
-					}
+					},
 				});
 			} else {
 				$('#box ul').html('') //如果输入框的词都删除了，把获取的数据结果也清空，因为已经获取到数据了，即使阻止再次发送请求也不会把已经获得的数据清除，所以这里直接用了最简单的办法，直接清空数据

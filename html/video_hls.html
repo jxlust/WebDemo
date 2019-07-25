@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/video-js.min.css" />
+		<link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/customer-video.css" />
+		<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+		<style>
+			.m {
+				width: 740px;
+				height: 400px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 100px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="m">
+			<video id="my-video" class="video-js" controls preload="auto" width="740" height="400" poster="m.png">
+			</video>
+			<input value="切换为map4播放" id="tabMap4" type="button" />
+			<input value="切换为m3u8播放" id="tabM3u8" type="button" />
+		</div>
+
+	</body>
+	<script src="../public/js/global/jquery-1.8.3.min.js"></script>
+	<script src="../js/polyfill.min.js"></script>
+	<!-- <script src="../js/video.min.js"></script> -->
+	<script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
+	<script src="../js/videojs-contrib-hls.js"></script>
+
+	<script>
+		$(function() {
+			var options = {
+				controls: true,
+				// aspectRatio: "998:656",
+				autoplay: true,
+				preload: "auto",
+				loop: false,
+				playbackRates: [0.5, 1, 1.5, 2],
+				controlBar: {
+					subtitlesButton: false,
+					captionsButton: false,
+					chaptersButton: false,
+					LiveDisplay: true,
+					subtitlesButton: false,
+					volumePanel: {
+						inline: false,
+						vertical: true
+					}, //竖着的音量条
+
+				},
+				plugins: {
+
+				}
+			}
+			/*option只是一个参数,function onPlayerReady就是播放器初始化完成时会执行的回调函数*/
+			var myPlayer = videojs('my-video', options, function onPlayerReady() {
+				var myPlayer = this;
+				myPlayer.src({
+					src: "http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8",
+					type: "application/x-mpegURL"
+				});
+
+				//加入下一节按钮
+				var nextDiv = document.createElement('div');
+				nextDiv.id = '';
+				nextDiv.className = 'nextDivStyle vjs-control';
+				nextDiv.innerHTML =
+					'<button class="vjs-control vjs-next-panel" id="nextButton"><i class="iconfont fa fa-expand" title="">&#xe652;</i></button>';
+				var controlBar = document.getElementsByClassName('vjs-control-bar')[0];
+				insertBeforeNode = document.getElementsByClassName('vjs-play-control')[0];
+				controlBar.insertBefore(nextDiv, insertBeforeNode.nextSibling);
+
+				//加入选择画质按钮(暂时先去掉)
+				var qualityDiv = document.createElement('div');
+				qualityDiv.id = '';
+				// 				qualityDiv.className = 'qualityStyle vjs-control';
+				// 				qualityDiv.innerHTML =
+				// 					'<button class="vjs-control vjs-quality-panel" id="quality1Button" >超清</button> ' +
+				// 					'<button class="vjs-control vjs-quality-panel" id="quality2Button" >普清</button>';
+
+				qualityDiv.className =
+					'vjs-subs-caps-button  vjs-menu-button vjs-menu-button-popup vjs-control vjs-button qualityStyle';
+				qualityDiv.innerHTML = '<div class="vjs-menu" role="presentation">' +
+					'<ul class="vjs-menu-content" role="menu">' +
+					'<li class="vjs-menu-item" tabindex="-1" role="menuitemcheckbox"  οnclick="changeVideo(1)">普通</li>' +
+					'<li class="vjs-menu-item" tabindex="-1" role="menuitemcheckbox"  οnclick="changeVideo(2)">标清 </li>' +
+					'<li class="vjs-menu-item" tabindex="-1" role="menuitemcheckbox"  οnclick="changeVideo(3)">高清 </li>' +
+					'</ul></div>' +
+					'  <button class="vjs-control vjs-quality-panel" id="quality1Button" >超清</button> ';
+				var rateNode = $('div.vjs-playback-rate')[0];
+				controlBar.insertBefore(qualityDiv, rateNode);
+
+				/* 替换位置 */
+				$("div.vjs-playback-rate").after($("div.vjs-volume-panel"));
+
+				this.play();
+			});
+			setTimeout(function() {
+				//myPlayer.setOptions()
+			}, 100)
+			$('#tabMap4').on('click', tabMap4);
+			$('#tabM3u8').on('click', tabM3u8);
+
+			function tabM3u8() {
+				myPlayer.src({
+					src: "http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8",
+					type: "application/x-mpegURL"
+				});
+				myPlayer.play();
+			}
+
+			function tabMap4() {
+				myPlayer.src({
+					src: "https://img.3d66.com/manager/20181206/758d1e66abff9a3c07d5b168b211bda3.mp4",
+					type: "video/mp4"
+				});
+				myPlayer.play();
+			}
+		})
+	</script>
+
+
+</html>
